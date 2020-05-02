@@ -1,6 +1,7 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
+import Radium from 'radium';
 import Person from './Person/Person';
 
 
@@ -67,11 +68,16 @@ class App extends React.Component {
 
   render () {
     const style = {
-      backgroundColor : 'white',
+      backgroundColor : 'green',
+      color : 'white',
       font : 'inherit',
       border: '1px solid blue',
       padding: '8px',
-      cursor: 'pointer'
+      cursor: 'pointer',
+      ':hover': {
+        backgroundColor : 'lightgreen',
+        color : 'black'
+      }
     };
 
     
@@ -91,13 +97,26 @@ class App extends React.Component {
           })}
         </div>
       );
+      
+      style.backgroundColor = 'red';
+      style[':hover'] = {
+        backgroundColor : 'salmon',
+        color : 'black'
+      }
+    }
 
+    const classes = [];
+    if(this.state.persons.length <= 2) {
+      classes.push('red'); //clasess = ['red']
+    }
+    if(this.state.persons.length <=1) {
+      classes.push('bold'); //clasess = ['red','bold']
     }
 
     return (
       <div className ="App">
         <h1>Hi, This My React App</h1>
-        <p>Really Good !</p>
+        <p className={classes.join(' ')}>Really Good !</p>
         <button 
         style={style}
         onClick={this.togglePersnonalHandler}>Toogle Persons</button>
@@ -108,4 +127,4 @@ class App extends React.Component {
 }
 
 
-export default App;
+export default Radium(App);
