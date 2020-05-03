@@ -1,7 +1,6 @@
 import React from 'react';
 // import logo from './logo.svg';
 import './App.css';
-import Radium from 'radium';
 import Person from './Person/Person';
 
 
@@ -67,18 +66,18 @@ class App extends React.Component {
   }
 
   render () {
-    const style = {
-      backgroundColor : 'green',
-      color : 'white',
-      font : 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor : 'lightgreen',
-        color : 'black'
-      }
-    };
+    // const style = {
+    //   backgroundColor : 'green',
+    //   color : 'white',
+    //   font : 'inherit',
+    //   border: '1px solid blue',
+    //   padding: '8px',
+    //   cursor: 'pointer',
+    //   ':hover': {
+    //     backgroundColor : 'lightgreen',
+    //     color : 'black'
+    //   }
+    // };
 
     
     let persons = null;
@@ -98,11 +97,11 @@ class App extends React.Component {
         </div>
       );
       
-      style.backgroundColor = 'red';
-      style[':hover'] = {
-        backgroundColor : 'salmon',
-        color : 'black'
-      }
+      // style.backgroundColor = 'red';
+      // style[':hover'] = {
+      //   backgroundColor : 'salmon',
+      //   color : 'black'
+      // }
     }
 
     const classes = [];
@@ -118,8 +117,10 @@ class App extends React.Component {
         <h1>Hi, This My React App</h1>
         <p className={classes.join(' ')}>Really Good !</p>
         <button 
-        style={style}
-        onClick={this.togglePersnonalHandler}>Toogle Persons</button>
+          className="button"
+          onClick={this.togglePersnonalHandler}>
+            Toogle Persons
+        </button>
         {persons}
       </div>
     );
@@ -127,4 +128,4 @@ class App extends React.Component {
 }
 
 
-export default Radium(App);
+export default App;
