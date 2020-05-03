@@ -1,6 +1,5 @@
 import React from 'react';
-// import logo from './logo.svg';
-import './App.css';
+import classes from './App.css'; 
 import Person from './Person/Person';
 
 
@@ -66,19 +65,6 @@ class App extends React.Component {
   }
 
   render () {
-    // const style = {
-    //   backgroundColor : 'green',
-    //   color : 'white',
-    //   font : 'inherit',
-    //   border: '1px solid blue',
-    //   padding: '8px',
-    //   cursor: 'pointer',
-    //   ':hover': {
-    //     backgroundColor : 'lightgreen',
-    //     color : 'black'
-    //   }
-    // };
-
     
     let persons = null;
 
@@ -104,21 +90,20 @@ class App extends React.Component {
       // }
     }
 
-    const classes = [];
+    const assignedClasses = [];
     if(this.state.persons.length <= 2) {
-      classes.push('red'); //clasess = ['red']
+      assignedClasses.push(classes.red); //classes = ['red']
     }
     if(this.state.persons.length <=1) {
-      classes.push('bold'); //clasess = ['red','bold']
+      assignedClasses.push(classes.bold); //classes = ['red','bold']
     }
 
     return (
-      <div className ="App">
+      <div className ={classes.App}>
         <h1>Hi, This My React App</h1>
-        <p className={classes.join(' ')}>Really Good !</p>
+        <p className={assignedClasses.join(' ')}>Really Good !</p>
         <button 
-          className="button"
-          onClick={this.togglePersnonalHandler}>
+          className ={classes.App} onClick={this.togglePersnonalHandler}>
             Toogle Persons
         </button>
         {persons}
